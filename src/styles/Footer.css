@@ -1,9 +1,12 @@
+@import url('variables.css');
+
 .footer {
-    background-color: '#D1C4E9';
-    text-align: 'center';
+    background-color: var(--button-color);
+    text-align: center;
+    color: white;
 }
 
 .footer-text{
     margin: 0;
-    padding: 20px;
+    padding: 10px;
 }
