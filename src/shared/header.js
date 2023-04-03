@@ -1,6 +1,6 @@
 import '../styles/Header.css';
 import logo from '../assets/images/logo.png'
-const Header = () => {
+const Header = (props) => {
     return (
         <header>
             <div class="logo">
@@ -9,9 +9,9 @@ const Header = () => {
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">Orders</a></li>
-                    <li><a href="#">Search terms</a></li>
+                    <li><a href="#">{props.element1}</a></li>
+                    <li><a href="#">{props.element2}</a></li>
+                    <li><a href="#">{props.element3}</a></li>
                 </ul>
             </nav>
             <button class="logout">Logout</button>
