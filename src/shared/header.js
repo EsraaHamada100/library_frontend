@@ -10,8 +10,8 @@ const Header = () => {
             <nav>
                 <ul>
                     <li><a href="#">Books</a></li>
-                    <li><a href="#">My Orders</a></li>
-                    <li><a href="#">My Search</a></li>
+                    <li><a href="#">Orders</a></li>
+                    <li><a href="#">Search terms</a></li>
                 </ul>
             </nav>
             <button class="logout">Logout</button>
