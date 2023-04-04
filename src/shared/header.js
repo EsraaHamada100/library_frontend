@@ -3,7 +3,7 @@ import logo from '../assets/images/logo.png'
 const Header = (props) => {
     return (
         <header>
-            <div class="logo">
+            <div className="logo">
                 <img src={logo} alt="Icon" />
                 <h2>Library</h2>
             </div>
@@ -14,7 +14,7 @@ const Header = (props) => {
                     <li><a href="#">{props.element3}</a></li>
                 </ul>
             </nav>
-            <button class="logout">Logout</button>
+            <button className="logout">Logout</button>
         </header>
     );
 }
