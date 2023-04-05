@@ -12,6 +12,7 @@ function App() {
   ): (
     <div className="App">
       <Header element1="Books" element2="Requests" element3="Users" />
+      <Footer/>
     </div>
   );
 }
