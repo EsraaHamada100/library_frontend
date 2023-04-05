@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// const API_URL = 'http://localhost:4000';
 function MangeUsers(){
-  const [users, setusers] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(()=>{
     axios.get('http://localhost:4000/users/')
-    .then(res=>console.log(res))
+    .then(res=>setUsers(res.data))
     .catch(err=>console.log(err))
     },[])
   return (
@@ -23,9 +22,9 @@ function MangeUsers(){
         <tbody>{
           users.map((data , i)=>(
             <tr key={i}>
-              <td>data.name</td>
-              <td>data.user-id</td>
-              <td>data.email</td>
+              <td>{data.name}</td>
+              <td>{data.user_id}</td>
+              <td>{data.email}</td>
             </tr>
           ))
           }</tbody>

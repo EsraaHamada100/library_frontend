@@ -1,14 +1,13 @@
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Header from './shared/Header.js';
 import Footer from './shared/Footer.js'
-import UserBooksView from './pages/UserBooksView';
-// import MangeUsers from './pages/components/Admin/MangeUsers';
-// import UserViewData from './pages/components/Admin/UserViewData';
-import MangeUsers from './pages/components/Admin/MangeUsers';
+import {BrowserRouter , Routes , Route} from 'react-router-dom';
+// import UserBooksView from './pages/UserBooksView';
+import MangeUsers from './admin/MangeUsers';
+import UserBooksView from './user/book_page/UserBooksView';
 function App() {
-  return true?(
+  return false?(
     <div className="App">
       <Header element1="Books" element2="Orders" element3="Search terms" />
       <UserBooksView />
@@ -17,8 +16,14 @@ function App() {
   ): (
     <div className="App">
       <Header element1="Books" element2="Requests" element3="Users" />
-      <MangeUsers/>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MangeUsers/>}>
+      </Route>
+      </Routes>
+      </BrowserRouter>
       <Footer/>
+
     </div>
   );
 }

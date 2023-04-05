@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import SearchIcon from '../assets/images/search.svg';
+import SearchIcon from '../../assets/images/search.svg';
 import EmptyResult from './components/EmptyResult';
 import BooksList from './components/BooksList';
-import '../styles/App.css';
+import './styles/UserBooksView.css';
 // c032e2d7
 const API_URL = 'http://localhost:4000';
 
@@ -21,7 +21,7 @@ const UserBooksView = () => {
         searchBooks('');
     }, []);
     return (
-        <div className="app">
+        <div className="books-library">
             <h1>Books Library</h1>
             {/* Search bar */}
             <div className="search">

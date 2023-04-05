@@ -1,3 +1,4 @@
+import '../styles/EmptyResult.css';
 
 const EmptyResult = () => {
     return (
