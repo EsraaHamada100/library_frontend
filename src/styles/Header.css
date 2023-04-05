@@ -50,17 +50,6 @@ header {
 
   }
   
-  
-  /* nav li:hover{
-    background-color: var(--button-color);
-    color: #ffffff !important;
-  } */
-  
-  /* nav a {
-    text-decoration: none;
-    color: var(--primary-color);
-  } */
-
   nav a:hover {
     color: white;
     background-color: var(--primary-color);
@@ -68,7 +57,7 @@ header {
   
   .logout {
     background-color: var(--primary-color);
-    color: #fff;
+    color: white;
     border: none;
     padding: 10px 20px;
     margin: 0px 10px;
