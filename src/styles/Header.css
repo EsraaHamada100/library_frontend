@@ -63,11 +63,11 @@ header {
 
   nav a:hover {
     color: white;
-    background-color: var(--button-color);
+    background-color: var(--primary-color);
   }
   
   .logout {
-    background-color: var(--button-color);
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     padding: 10px 20px;

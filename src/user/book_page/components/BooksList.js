@@ -1,3 +1,4 @@
+import '../styles/BooksList.css'
 import BookCard from "./BookCard";
 
 const BooksList = (props) => {

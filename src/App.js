@@ -1,7 +1,7 @@
 import './styles/App.css';
 import Header from './shared/Header.js';
 import Footer from './shared/Footer.js'
-import UserBooksView from './pages/UserBooksView';
+import UserBooksView from './user/book_page/UserBooksView';
 function App() {
   return true?(
     <div className="App">

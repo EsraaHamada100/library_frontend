@@ -1,9 +1,10 @@
-
+import '../styles/BookCard.css';
 const BookCard = ({book})=>{
     return (
         <div className="book">
             <div>
-                <p>{book.publication_date}</p>
+                {/* To get only the date not the time associated with it */}
+                <p>{book.publication_date.split('T')[0]}</p>
             </div>
             <div>
                 <img 
