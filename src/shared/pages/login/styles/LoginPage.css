@@ -1,0 +1,111 @@
+@import url('../../../../styles/variables.css');
+/* * {
+    box-sizing: border-box;
+
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+   */
+  .container {
+    display: flex;
+
+  }
+  
+  .image {
+    height: 100%;
+    flex: 1;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .image img {
+    display: block;
+    top: 0;
+    max-width: 80%;
+    height: 100%;
+  }
+  
+  .form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .form .form-group{
+    margin: 20px 0px;
+  }
+  .form label {
+    color: var(--primary-color);
+  }
+
+  .form .form-group input:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+
+  }
+
+  .form form h2 {
+    margin-bottom: 40px;
+  }
+  
+  form {
+    background-color: var(--form-background-color);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    border: 1.5px solid var(--primary-color);
+    border-radius: 5px;
+  }
+
+  form .error{
+    color: red;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  button[type=button] {
+    background-color: var(--primary-color);
+    display: block;
+    margin: 45px auto 10px auto;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+  }
+  
+  button[type=button]:hover {
+    background-color: var(--button-hover-color);
+  }
+  form p{
+    color: var(--primary-color);
+    display: block;
+    margin: 20px auto 10px auto;
+    text-align: center;
+    font-weight: lighter;
+  }
+  form p span {
+    font-weight: normal;
+    cursor: pointer;
+  }

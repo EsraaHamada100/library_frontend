@@ -7,6 +7,7 @@
   /* It means that if I set the width of element to for example 100px
   that will contain all padding and margin so the element will shrank if I put them */
   box-sizing: border-box;
+
 }
 /* The :root means that you define these variables at the root level so you can 
 use it any where through the entire document*/
@@ -17,9 +18,11 @@ use it any where through the entire document*/
 }
 
 body {
+
   font-family: var(--font-roboto);
   /* background-color: #212426; */
   background-color: var(--background-color);
+  height: 100vh;
 }
 
 

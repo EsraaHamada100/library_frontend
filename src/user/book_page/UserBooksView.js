@@ -3,8 +3,9 @@ import SearchIcon from '../../assets/images/search.svg';
 import EmptyResult from './components/EmptyResult';
 import BooksList from './components/BooksList';
 import './styles/UserBooksView.css';
+import {API_URL} from '../../shared/constants.js'
 // c032e2d7
-const API_URL = 'http://localhost:4000';
+
 
 const UserBooksView = () => {
     console.log('we entered user books view');

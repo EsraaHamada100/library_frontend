@@ -1,10 +1,10 @@
-import '../styles/Header.css';
-import logo from '../assets/images/logo.png'
+import '../../styles/Header.css';
+import logo from '../../assets/images/logo.png'
 const Header = (props) => {
     return (
         <header>
             <div className="logo">
-                <img src={logo} alt="Icon" />
+                <img src={logo} alt="A logo for a library" />
                 <h2>Library</h2>
             </div>
             <nav>

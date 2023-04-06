@@ -37,9 +37,6 @@ export const router = createBrowserRouter(
                 }
             ],
 
-
-
-
 );
 
 const adminRoutes = [
