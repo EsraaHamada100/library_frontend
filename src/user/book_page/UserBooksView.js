@@ -3,18 +3,16 @@ import SearchIcon from '../../assets/images/search.svg';
 import EmptyResult from './components/EmptyResult';
 import BooksList from './components/BooksList';
 import './styles/UserBooksView.css';
-import {API_URL} from '../../shared/constants.js'
+import { API_URL } from '../../shared/variables.js'
 // c032e2d7
 
 
 const UserBooksView = () => {
-    console.log('we entered user books view');
     const [books, setBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const searchBooks = async (bookName) => {
         const response = await fetch(`${API_URL}/books?book_name=${bookName}`);
         const data = await response.json();
-        console.log(data);
         setBooks(data);
     }
 
@@ -36,15 +34,13 @@ const UserBooksView = () => {
                 <img
                     src={SearchIcon}
                     alt="Search"
-                    onClick={() =>{
+                    onClick={() => {
                         searchBooks(searchTerm);
-                        console.log('You clicked the search icon');
                     }}
                 />
             </div>
             {
-                books?.length ? <BooksList books= {books}/> : <EmptyResult />
-
+                books?.length ? <BooksList books={books} /> : <EmptyResult />
             }
 
         </div>

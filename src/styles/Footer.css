@@ -1,4 +1,4 @@
-@import url('variables.css');
+@import url('style_variables.css');
 
 .footer {
     background-color: var(--primary-color);
