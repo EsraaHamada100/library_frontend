@@ -6,7 +6,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    background-color: var(--header-background-color);
+    background-color: var(--secondry-color);
 }
 
   h2{

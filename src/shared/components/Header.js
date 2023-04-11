@@ -1,7 +1,7 @@
 import '../../styles/Header.css';
 import logo from '../../assets/images/logo.png';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
-import { setUserData, userData } from '../variables';
+import { setUserData } from '../variables';
 import { deleteCachedUserData } from '../../utils/localStorage';
 const Header = (props) => {
     // from here I can get the location path and now in which route the website is
@@ -25,7 +25,7 @@ const Header = (props) => {
             <nav>
                 <ul>
                     <li><Link to="/books" className={location.pathname === '/books' ? 'books-link active' : 'books-link'}>{props.element1}</Link></li>
-                    <li><Link to="/requests" className={location.pathname === '/requests' ? 'requests-link active' : 'requests-link'}>{props.element2}</Link></li>
+                    <li><Link to="/user-requests" className={location.pathname === '/requests' ? 'requests-link active' : 'requests-link'}>{props.element2}</Link></li>
                     <li><Link to="/search-terms" className={location.pathname === '/search-terms' ? 'search-terms-link active' : 'search-terms-link'}>{props.element3}</Link></li>
                 </ul>
             </nav>

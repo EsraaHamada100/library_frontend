@@ -1,4 +1,5 @@
-  
+@import url('../../../../styles/style_variables.css');
+
   .form {
     flex: 1;
     display: flex;

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 function MangeUsers(){
   const [users, setUsers] = useState([]);
-  // useEffect(()=>{
-  //   axios.get('http://localhost:4000/users/')
-  //   .then(res=>setUsers(res.data))
-  //   .catch(err=>console.log(err))
-  //   },[])
+  useEffect(()=>{
+    axios.get('http://localhost:4000/users/')
+    .then(res=>setUsers(res.data))
+    .catch(err=>console.log(err))
+    },[])
   return (
     <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
       <div className='w-50 bg-white rounded p-3'>

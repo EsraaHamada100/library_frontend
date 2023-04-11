@@ -14,3 +14,10 @@ export const userRoles = {
     user: 'user',
     guest: 'guest'
 }
+
+
+export const requestStates = {
+    pending: 'pending',
+    approved: 'approved',
+    declined: 'declined',
+}

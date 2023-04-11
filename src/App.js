@@ -9,20 +9,24 @@ import MangeUsers from './admin/MangeUsers';
 import UserBooksView from './user/book_page/UserBooksView';
 import LoginPage from './shared/pages/login/LoginPage';
 import checkLogin from './utils/checkLogIn';
-import { setUserData, userData } from './shared/variables';
+import { setUserData, userData, userRoles } from './shared/variables';
 import { useEffect, useState } from 'react';
 import { getCachedUserData, getCachedUserId } from './utils/localStorage';
 function App() {
 
   return (
     <div className="App">
-      {userData? (
+      {userData? userData.type == userRoles.user?(
         <>
           <Header element1="Books" element2="Requests" element3="Users" />
           <Outlet />
           <Footer />
         </>
       ) : (
+        <>
+          
+        </>
+      ):(
         <>
           <Outlet />
         </>

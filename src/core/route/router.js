@@ -7,6 +7,8 @@ import RegisterPage from "../../shared/pages/register/RegisterPage";
 import { setUserData, userData, userRoles } from "../../shared/variables";
 import { getCachedUserData } from "../../utils/localStorage";
 import ProtectedRoute from './protectedRoute';
+import BookDetailsPage from "../../user/book_details_page/BookDetailsPage";
+import UserRequestsPage from "../../user/user_requests_page/UserRequestsPage";
 //! I initialize the userData  here if the user is already logged in before
 function initializeUserData() {
     const cachedUserData = getCachedUserData();
@@ -29,6 +31,18 @@ const userRoutes = [
         element: <ProtectedRoute expectedRole={userRoles.user}>
             <UserBooksView />
         </ProtectedRoute>,
+    },
+    {
+        path: '/book-details',
+        element: <ProtectedRoute expectedRole={userRoles.user}>
+            <BookDetailsPage />
+        </ProtectedRoute>,
+    },
+    {
+        path: '/user-requests',
+        element : <ProtectedRoute expectedRole={userRoles.user}>
+        <UserRequestsPage />
+    </ProtectedRoute>,
     }
 ];
 
@@ -59,12 +73,12 @@ export const router = createBrowserRouter(
             children: [
                 {
                     path: '/',
-                    element: userData?<Navigate to="/books" replace />:<Navigate to="/login" replace />,
+                    element: userData ? <Navigate to="/books" replace /> : <Navigate to="/login" replace />,
                 },
                 ...guestRoutes,
                 ...userRoutes,
                 ...adminRoutes,
-                
+
 
             ]
         },
