@@ -6,6 +6,8 @@ import {BrowserRouter , Routes , Route} from 'react-router-dom';
 // import UserBooksView from './pages/UserBooksView';
 import MangeUsers from './admin/MangeUsers';
 import UserBooksView from './user/book_page/UserBooksView';
+import CreatUser from './admin/CreatUser';
+import UpdateUser from './admin/UpdateUser';
 function App() {
   return false?(
     <div className="App">
@@ -18,8 +20,9 @@ function App() {
       <Header element1="Books" element2="Requests" element3="Users" />
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MangeUsers/>}>
-      </Route>
+        <Route path='/' element={<MangeUsers/>}></Route>
+        <Route path='/creat' element={<CreatUser/>}></Route>
+        <Route path='/update/:id' element={<UpdateUser/>}></Route>
       </Routes>
       </BrowserRouter>
       <Footer/>

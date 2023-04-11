@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 function MangeUsers(){
   const [users, setUsers] = useState([]);
   useEffect(()=>{
@@ -7,16 +8,25 @@ function MangeUsers(){
     .then(res=>setUsers(res.data))
     .catch(err=>console.log(err))
     },[])
+    const handelDelete =async (user_id)=>{
+      try{
+        await axios.delete('http://localhost:4000/users/' + user_id)
+        window.location.reload()
+      }catch(err){
+        console.log(err);
+      }
+    }
   return (
     <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
       <div className='w-50 bg-white rounded p-3'>
-      <button className='btn bg-success'>Add +</button>
+      <Link to="/creat" className='btn bg-success'>Add +</Link>
       <table className='table'>
         <thead>
           <tr>
             <th>Name</th>
             <th>ID</th>
-            <th>e-mail</th>
+            <th>E-mail</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>{
@@ -25,6 +35,10 @@ function MangeUsers(){
               <td>{data.name}</td>
               <td>{data.user_id}</td>
               <td>{data.email}</td>
+              <td>
+                <Link to={`update/${data.user_id}`} className='btn btn-primary'>Update</Link>
+                <button className='btn btn-danger ms-2' onClick={e => handelDelete(data.user_id)}>Delete</button>
+              </td>
             </tr>
           ))
           }</tbody>
