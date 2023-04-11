@@ -1,0 +1,30 @@
+@import url('../../../../styles/style_variables.css');
+
+  body {
+    background-color: var(--background-color);
+  }
+  .container {
+    display: flex;
+
+  }
+  
+  /* .image {
+    height: 100%;
+    flex: 1;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .image img {
+    display: block;
+    top: 0;
+    max-width: 80%;
+    height: 100%;
+  } */
+
+  /* form p span {
+    font-weight: normal;
+    cursor: pointer;
+  } */

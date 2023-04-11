@@ -1,8 +1,11 @@
 :root {
     /* --primary-color: #550D0E; */
     --primary-color: rgba(133, 96, 90);
+    --secondry-color: #F4e7d7;
     --background-color: #fff7ec ;
-    --header-background-color: #F4e7d7;
+
+    --form-background-color: #F4e7d7 ;
+    /* --header-background-color: #F4e7d7; */
     /* --header-background-color: #373a3c; */
     /* --button-color: rgba(113, 26, 27, 0.83); */
     --button-hover-color: rgba(113, 26, 27,0.6);

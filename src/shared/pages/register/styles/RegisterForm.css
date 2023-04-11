@@ -1,0 +1,97 @@
+.register-form {
+    flex: 1;
+    max-width: 700px;
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-form form {
+    background-color: var(--form-background-color);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .register-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .register-form .form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .register-form .form-group label {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: left;
+    flex-basis: 30%;
+  }
+  
+  .register-form .form-group input {
+    width: 100%;
+    padding: 8px 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    border: 1.5px solid var(--primary-color);
+    border-radius: 5px;
+    flex-basis: 70%;
+  }
+  
+  .register-form .form-group input:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+  }
+  
+  .register-form .error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .register-form button[type=button] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .register-form button[type=button]:hover {
+    background-color: var(--button-hover-color);
+  }
+  
+  .register-form form p {
+    color: var(--primary-color);
+    display: block;
+    margin: 20px auto 10px auto;
+    text-align: center;
+    font-weight: lighter;
+  }
+
+  form p a{
+    color: inherit;
+    font-weight: bold;
+
+  }
+
+  form p a:hover{
+    color: var(--button-hover-color);
+  }
+  

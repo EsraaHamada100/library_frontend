@@ -1,4 +1,4 @@
-@import url('variables.css');
+@import url('style_variables.css');
 
 
 header {
@@ -6,7 +6,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    background-color: var(--header-background-color);
+    background-color: var(--secondry-color);
 }
 
   h2{
@@ -50,10 +50,21 @@ header {
 
   }
   
-  nav a:hover {
+  nav ul li a:hover 
+  {
     color: white;
     background-color: var(--primary-color);
   }
+
+  .books-link.active,
+  .requests-link.active,
+  .search-terms-link.active {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+
+
   
   .logout {
     background-color: var(--primary-color);
