@@ -9,26 +9,30 @@
   color: var(--primary-color);
   float: right;
   border: 1px solid black;
+  margin-bottom: 20px;
 }
 .user-requests-page  table {
+  border: 2px solid var(--primary-color);
     border-collapse: collapse;
     width: 100%;
   }
   
   th, td {
     text-align: left;
-    padding: 8px;
+    padding: 10px 8px;
+    color: var(--primary-color);
   }
   
   th {
-    background-color: #eee;
+    background-color: var(--primary-color);
+    color: var(--background-color);
   }
   
   .odd {
-    background-color: #f1f1f1;
+    background-color: var(--secondry-color);
   }
   
   .even {
-    background-color: #fff;
+    background-color: var(--background-color);
   }
   

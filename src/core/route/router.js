@@ -19,7 +19,7 @@ initializeUserData();
 
 const adminRoutes = [
     {
-        path: '/',
+        path: '/manage-users',
         element: <MangeUsers />,
     },
 

@@ -19,7 +19,43 @@ const data = [
     bookName: "Book 3",
     approvalState: "Declined",
     pdfFile: "/path/to/file3.pdf"
-  }
+  },
+  {
+    requestId: "1",
+    bookName: "Book 1",
+    approvalState: "Approved",
+    pdfFile: "/path/to/file1.pdf"
+  },
+  {
+    requestId: "2",
+    bookName: "Book 2",
+    approvalState: "Pending",
+    pdfFile: "/path/to/file2.pdf"
+  },
+  {
+    requestId: "3",
+    bookName: "Book 3",
+    approvalState: "Declined",
+    pdfFile: "/path/to/file3.pdf"
+  },
+  {
+    requestId: "1",
+    bookName: "Book 1",
+    approvalState: "Approved",
+    pdfFile: "/path/to/file1.pdf"
+  },
+  {
+    requestId: "2",
+    bookName: "Book 2",
+    approvalState: "Pending",
+    pdfFile: "/path/to/file2.pdf"
+  },
+  {
+    requestId: "3",
+    bookName: "Book 3",
+    approvalState: "Declined",
+    pdfFile: "/path/to/file3.pdf"
+  },
 ];
 
 const UserRequestsPage = () => {
