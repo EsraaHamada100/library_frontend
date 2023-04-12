@@ -1,18 +1,27 @@
 @import url('../../../styles/style_variables.css');
 
-.user-requests-page {
+.search-terms-page {
     padding: 50px;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
-.states-drop-down-list {
-  background-color: var(--secondry-color);
-  color: var(--primary-color);
+.search-terms-page button {
+  background-color: var(--secondry-color) ;
+  color: var(--primary-color) ;
   float: right;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-bottom: 20px;
+  width: fit-content;
 }
-.user-requests-page  table {
+.search-terms-page button:hover {
+    background-color: var(--button-hover-color);
+    color: white;
+}
+
+.search-terms-page button span{
+    padding-left: 10px;
+}
+.search-terms-page  table {
   border: 2px solid var(--primary-color);
     border-collapse: collapse;
     width: 100%;
@@ -27,6 +36,14 @@
   th {
     background-color: var(--primary-color);
     color: var(--background-color);
+  }
+
+  tr .raw-delete-icon{
+    color: var(--primary-color);
+  }
+
+  tr .raw-delete-icon:hover{
+    color: red;
   }
   
   .odd {

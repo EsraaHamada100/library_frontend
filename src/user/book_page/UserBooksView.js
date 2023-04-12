@@ -4,6 +4,7 @@ import EmptyResult from './components/EmptyResult';
 import BooksList from './components/BooksList';
 import './styles/UserBooksView.css';
 import { API_URL } from '../../shared/variables.js'
+import axios from 'axios';
 // c032e2d7
 
 
@@ -11,8 +12,8 @@ const UserBooksView = () => {
     const [books, setBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const searchBooks = async (bookName) => {
-        const response = await fetch(`${API_URL}/books?book_name=${bookName}`);
-        const data = await response.json();
+        const response = await axios(`${API_URL}/books?book_name=${bookName}`);
+        const data = response.data;
         setBooks(data);
     }
 

@@ -1,82 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/UserRequestsPage.css";
-
-const data = [
-  {
-    requestId: "1",
-    bookName: "Book 1",
-    approvalState: "Approved",
-    pdfFile: "/path/to/file1.pdf"
-  },
-  {
-    requestId: "2",
-    bookName: "Book 2",
-    approvalState: "Pending",
-    pdfFile: "/path/to/file2.pdf"
-  },
-  {
-    requestId: "3",
-    bookName: "Book 3",
-    approvalState: "Declined",
-    pdfFile: "/path/to/file3.pdf"
-  },
-  {
-    requestId: "1",
-    bookName: "Book 1",
-    approvalState: "Approved",
-    pdfFile: "/path/to/file1.pdf"
-  },
-  {
-    requestId: "2",
-    bookName: "Book 2",
-    approvalState: "Pending",
-    pdfFile: "/path/to/file2.pdf"
-  },
-  {
-    requestId: "3",
-    bookName: "Book 3",
-    approvalState: "Declined",
-    pdfFile: "/path/to/file3.pdf"
-  },
-  {
-    requestId: "1",
-    bookName: "Book 1",
-    approvalState: "Approved",
-    pdfFile: "/path/to/file1.pdf"
-  },
-  {
-    requestId: "2",
-    bookName: "Book 2",
-    approvalState: "Pending",
-    pdfFile: "/path/to/file2.pdf"
-  },
-  {
-    requestId: "3",
-    bookName: "Book 3",
-    approvalState: "Declined",
-    pdfFile: "/path/to/file3.pdf"
-  },
-];
+import { API_URL, userData } from "../../shared/variables";
+import axios from "axios";
+import getSpecificUserRequests from "../../utils/getSpecificUserRequest";
+import { requestStates } from "../../shared/variables";
+import {BsDashLg} from 'react-icons/bs';
 
 const UserRequestsPage = () => {
-  const [filter, setFilter] = useState("All States");
+  const [requestsList, setRequestsList] = useState([]);
+  const getUserRequests = async()=>{
+    const data =  await getSpecificUserRequests();
+    setRequestsList(data);
+  }
+  useEffect( () => {
+    getUserRequests();
+  }, []);
+
+  const [approvalState, setApprovalState] = useState("All States");
 
   const handleChange = (event) => {
-    setFilter(event.target.value);
+    setApprovalState(event.target.value);
   };
 
-  const filteredData =
-    filter === "All States"
-      ? data
-      : data.filter((item) => item.approvalState === filter);
-
-  return (
+  const filteredData = 
+    approvalState === "All States"
+      ? requestsList
+      : requestsList.filter((item) => item.approval_state === approvalState);
+  console.log('filtered data ', filteredData);
+  return requestsList?(
     <div className='user-requests-page'>
-      <select value={filter} className='states-drop-down-list' onChange={handleChange}>
+      <select value={approvalState} className='states-drop-down-list' onChange={handleChange}>
         <option value="All States">All States</option>
-        <option value="Pending">Pending</option>
-        <option value="Approved">Approved</option>
-        <option value="Declined">Declined</option>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="declined">Declined</option>
       </select>
       <table>
         <thead>
@@ -89,17 +46,21 @@ const UserRequestsPage = () => {
         </thead>
         <tbody>
           {filteredData.map((item, index) => (
-            <tr key={item.requestId} className={index % 2 === 0 ? "even" : "odd"}>
-              <td>{item.requestId}</td>
-              <td>{item.bookName}</td>
-              <td>{item.approvalState}</td>
-              <td><a href={item.pdfFile}>Download</a></td>
+            <tr key={item.request_id} className={index % 2 === 0 ? "even" : "odd"}>
+              <td>{item.request_id}</td>
+              <td>{item.book_name}</td>
+              <td>{item.approval_state}</td>
+              {
+              item.approval_state === requestStates.approved?
+              <td><a href={item.pdf_file} target="_blank">Open</a></td>
+              :<td><BsDashLg /></td>
+              }
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  );
+  ):(<div>NO REQUESTS FOUND</div>);
 };
 
 export default UserRequestsPage;

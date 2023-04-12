@@ -23,17 +23,18 @@ const BookDetailsPage = () => {
     bookId: state.bookId,
   }
 
-  useEffect(() => {
-    async function fetchRequestState() {
-      try {
-        const response = await getRequestState(request);
-        setCurrentRequestState(response);
-      } catch (error) {
-        // Handle error here
-      } finally {
-        setIsLoading(false);
-      }
+  async function fetchRequestState() {
+    try {
+      const response = await getRequestState(request);
+      setCurrentRequestState(response);
+    } catch (error) {
+      // Handle error here
+    } finally {
+      setIsLoading(false);
     }
+  }
+
+  useEffect(() => {
     fetchRequestState();
   }, []);
 

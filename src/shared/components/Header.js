@@ -25,7 +25,7 @@ const Header = (props) => {
             <nav>
                 <ul>
                     <li><Link to="/books" className={location.pathname === '/books' ? 'books-link active' : 'books-link'}>{props.element1}</Link></li>
-                    <li><Link to="/user-requests" className={location.pathname === '/requests' ? 'requests-link active' : 'requests-link'}>{props.element2}</Link></li>
+                    <li><Link to="/user-requests" className={location.pathname === '/user-requests' ? 'requests-link active' : 'requests-link'}>{props.element2}</Link></li>
                     <li><Link to="/search-terms" className={location.pathname === '/search-terms' ? 'search-terms-link active' : 'search-terms-link'}>{props.element3}</Link></li>
                 </ul>
             </nav>

@@ -13,14 +13,11 @@ const getRequestState = async (request) => {
                 "Authorization": request.userId
             },
         });
-        if (response.status == 200) {
+        if (response.status === 200) {
             if(response.data[0]){
                 return response.data[0].approval_state;
             }
             return null;
-        }
-        else{
-            throw new Error(response.data.message);
         }
     } catch (error) {
         throw new Error(error.response.data.message);

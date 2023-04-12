@@ -1,15 +1,16 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import MangeUsers from "../../admin/MangeUsers";
 import App from '../../App';
-import NotFound from "../../shared/pages/not_found/NotFound";
-import UserBooksView from "../../user/book_page/UserBooksView";
 import LoginPage from "../../shared/pages/login/LoginPage";
+import NotFound from "../../shared/pages/not_found/NotFound";
 import RegisterPage from "../../shared/pages/register/RegisterPage";
 import { setUserData, userData, userRoles } from "../../shared/variables";
+import BookDetailsPage from "../../user/book_details_page/BookDetailsPage";
+import UserBooksView from "../../user/book_page/UserBooksView";
+import UserRequestsPage from "../../user/user_requests_page/UserRequestsPage";
 import { getCachedUserData } from "../../utils/localStorage";
 import ProtectedRoute from './protectedRoute';
-import BookDetailsPage from "../../user/book_details_page/BookDetailsPage";
-import UserRequestsPage from "../../user/user_requests_page/UserRequestsPage";
-import MangeUsers from "../../admin/MangeUsers";
+import SearchTermsPage from "../../user/search_terms_page/SearchTermsPage";
 //! I initialize the userData  here if the user is already logged in before
 function initializeUserData() {
     const cachedUserData = getCachedUserData();
@@ -44,6 +45,12 @@ const userRoutes = [
         element : <ProtectedRoute expectedRole={userRoles.user}>
         <UserRequestsPage />
     </ProtectedRoute>,
+    },
+    {
+        path: '/search-terms',
+        element : <ProtectedRoute expectedRole={userRoles.user}>
+            <SearchTermsPage />
+        </ProtectedRoute>
     }
 ];
 
