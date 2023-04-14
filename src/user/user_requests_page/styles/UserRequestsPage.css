@@ -9,6 +9,7 @@
   background-color: var(--secondry-color);
   color: var(--primary-color);
   float: right;
+  width: fit-content;
   border: 1px solid black;
   margin-bottom: 20px;
 }

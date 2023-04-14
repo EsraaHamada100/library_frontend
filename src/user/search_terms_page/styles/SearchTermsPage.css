@@ -14,7 +14,7 @@
   width: fit-content;
 }
 .search-terms-page button:hover {
-    background-color: var(--button-hover-color);
+    background-color: var(--secondry-container-color);
     color: white;
 }
 

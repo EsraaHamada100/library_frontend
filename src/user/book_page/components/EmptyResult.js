@@ -1,4 +1,5 @@
 import '../styles/EmptyResult.css';
+import React from "react";
 
 const EmptyResult = () => {
     return (

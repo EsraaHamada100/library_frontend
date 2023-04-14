@@ -17,9 +17,6 @@ h1 {
     convert it to 0 as we reach the 100% of the text*/
     background: linear-gradient(
       90deg,
-      
-      /* rgba(249, 211, 180, 1) 0%, */
-      /* rgba(249, 211, 180, 0) 100% */
       rgba(133, 96, 90, 1),
       rgba(133, 96, 90, 0.5)
     );
@@ -30,10 +27,16 @@ h1 {
     -webkit-text-fill-color: transparent;
     width: fit-content;
   }
-  
-.search {
+  .search-and-filter {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-and-filter .search {
     width: 71%;
-    margin: 4rem 0 2rem;
+    margin: 40px 10px 40px 0px;
   
     display: flex;
     align-items: center;
@@ -41,11 +44,7 @@ h1 {
   
     padding: 1.5rem 1.75rem;
     border-radius: 3rem;
-    /* background: #1f2123; */
     background: #faf4dc;
-    /* -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-    box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527; */
-    /* offeset-x, offeset-y , blur radius, color*/
     box-shadow: 5px 5px 20px #85605A;
   }
   
@@ -71,4 +70,11 @@ h1 {
     cursor: pointer;
   }
   
-
+  .filter-btn {
+    margin-left: 20px;
+    border-radius: 50%;
+    width: 50px; /* adjust the width and height to your desired size */
+    height: 50px;
+    background-color: var(--secondry-color);
+    color: var(--secondry-container-color);
+  }

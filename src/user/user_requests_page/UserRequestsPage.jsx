@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./styles/UserRequestsPage.css";
 import { API_URL, userData } from "../../shared/variables";
 import axios from "axios";
-import getSpecificUserRequests from "../../utils/getSpecificUserRequest";
+import getSpecificUserRequests from "../../utils/user_requests/getSpecificUserRequest";
 import { requestStates } from "../../shared/variables";
 import {BsDashLg} from 'react-icons/bs';
+
 
 const UserRequestsPage = () => {
   const [requestsList, setRequestsList] = useState([]);

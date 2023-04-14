@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL, DEFAULT_HEADER, setUserData } from '../shared/variables';
+import { API_URL, DEFAULT_HEADER, setUserData } from '../../shared/variables';
 import { cacheUserData } from './localStorage';
 const signIn = async (formData) => {
   const loginData = {

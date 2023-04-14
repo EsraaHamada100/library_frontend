@@ -8,12 +8,14 @@
     align-items: center;
     flex-direction: row;
     color: var(--primary-color);
+    margin-top: 20px;
 
   }
   
   .book-details-cover {
     padding: 20px 10px;
     width: 33.33%;
+    align-self: flex-start; 
   }
   
   img{
@@ -61,7 +63,7 @@
   
   .book-action-button {
     padding: 10px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -73,9 +75,18 @@
 
   }
   .book-action-button:hover{
-    background-color: var(--button-hover-color);
+    background-color: var(--secondry-container-color);
   }
   .book-action-button span {
     margin-left: 10px;
   }
-  
+  /* add a line below the h3 "Book Chapters" text */
+  .book-chapters-text::after {
+    content: "";
+    display: block;
+    width: 190px;
+    height: 2px;
+    background-color: var(--secondry-container-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }

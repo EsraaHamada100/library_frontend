@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 import "./styles/BookDetailsPage.css";
 import { BsCart3 } from 'react-icons/bs';
 import { useLocation } from "react-router-dom";
-import orderBook from "../../utils/orderBook";
-import { userData, requestStates} from '../../shared/variables'
-import getRequestState from "../../utils/getRequestState";
-import {MdPendingActions, MdDoNotDisturb} from 'react-icons/md';
-import {AiOutlineBook} from 'react-icons/ai';
-import {FaBookOpen} from 'react-icons/fa';
+import orderBook from "../../utils/user_requests/orderBook";
+import { userData, requestStates } from '../../shared/variables'
+import getRequestState from "../../utils/user_requests/getRequestState";
+import { MdPendingActions, MdDoNotDisturb } from 'react-icons/md';
+import { AiOutlineBook } from 'react-icons/ai';
 import LoadingIndicator from "../../shared/components/LoadingIndicator";
+import CollapsibleChapter from "./components/CollapsibleChapter";
 
 const BookDetailsPage = () => {
   const { state } = useLocation();
@@ -26,6 +26,7 @@ const BookDetailsPage = () => {
   async function fetchRequestState() {
     try {
       const response = await getRequestState(request);
+      console.log('current request state ',response);
       setCurrentRequestState(response);
     } catch (error) {
       // Handle error here
@@ -38,22 +39,23 @@ const BookDetailsPage = () => {
     fetchRequestState();
   }, []);
 
-  async function orderTheBook(){
+  async function orderTheBook() {
     try {
       await orderBook(request);
       setCurrentRequestState(requestStates.pending);
+
     } catch (error) {
       setErrorMessage(error.message);
     }
   }
 
-  function openTheBook(){
+  function openTheBook() {
     const url = state.bookLink;
     window.open(url, '_blank');
   }
 
-  async function handleBookActionButtonClick(){
-    switch(currentRequestState){
+  async function handleBookActionButtonClick() {
+    switch (currentRequestState) {
       case requestStates.pending:
         orderTheBook();
         break;
@@ -61,7 +63,7 @@ const BookDetailsPage = () => {
         openTheBook();
         break;
       case requestStates.declined:
-        break; 
+        break;
       default:
         orderTheBook();
     }
@@ -70,13 +72,13 @@ const BookDetailsPage = () => {
   let buttonComponent;
   switch (currentRequestState) {
     case requestStates.pending:
-      buttonComponent = <><MdPendingActions/><span>Pending</span></>;
+      buttonComponent = <><MdPendingActions /><span>Pending</span></>;
       break;
     case requestStates.approved:
-      buttonComponent = <><AiOutlineBook/> <span>Read</span></>;
+      buttonComponent = <><AiOutlineBook /> <span>Read</span></>;
       break;
     case requestStates.declined:
-      buttonComponent = <><MdDoNotDisturb/><span>declined</span></>
+      buttonComponent = <><MdDoNotDisturb /><span>declined</span></>
       break; // don't forget to add the break statement
     default:
       buttonComponent = (
@@ -108,6 +110,28 @@ const BookDetailsPage = () => {
               {buttonComponent}
             </button>
             {errorMessage && <div className="alert alert-danger" role="alert">{errorMessage}</div>}
+
+
+            {
+              state.chapters ?
+              // the book has chapters associated with it
+                (<>
+                  <h3>Book Chapters</h3>
+                  {
+                    state.chapters.map((chapter, index) => (
+                      <CollapsibleChapter
+                        key={index}
+                        title={chapter.title}
+                        content={chapter.description}
+                      />
+                    ))
+                  }
+                </>)
+                :
+                // the book doesn't have chapters
+                (<></>)
+            }
+
           </div>
         </>
       )}

@@ -1,0 +1,21 @@
+.collapsible {
+    border-bottom: 1px solid ; 
+    padding: 20px 10px 0px 10px;
+  }
+  .collapsible .chapter-title {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+
+  }
+  
+  .collapsible .content {
+    display: none;
+  }
+  
+  .collapsible.active .content {
+    display: block;
+  }

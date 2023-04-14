@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '../../assets/images/logo.png';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { setUserData } from '../variables';
-import { deleteCachedUserData } from '../../utils/localStorage';
+import { deleteCachedUserData } from '../../utils/auth/localStorage';
 const Header = (props) => {
     // from here I can get the location path and now in which route the website is
     // and according to this I will color the nav elements
@@ -25,9 +25,9 @@ const Header = (props) => {
             </div>
             <nav>
                 <ul>
-                    <li><Link to="/books" className={location.pathname === '/books' ? 'books-link active' : 'books-link'}>{props.element1}</Link></li>
-                    <li><Link to="/user-requests" className={location.pathname === '/user-requests' ? 'requests-link active' : 'requests-link'}>{props.element2}</Link></li>
-                    <li><Link to="/search-terms" className={location.pathname === '/search-terms' ? 'search-terms-link active' : 'search-terms-link'}>{props.element3}</Link></li>
+                    <li><Link to={props.routes[0]} className={location.pathname === props.routes[0]? 'nav1 active' : 'nav1'}>{props.element1}</Link></li>
+                    <li><Link to={props.routes[1]} className={location.pathname === props.routes[1] ? 'nav2 active' : 'nav2'}>{props.element2}</Link></li>
+                    <li><Link to={props.routes[2]} className={location.pathname === props.routes[2] ? 'nav3 active' : 'nav3'}>{props.element3}</Link></li>
                 </ul>
             </nav>
             <button className="logout" onClick={handleLogoutClick}>Logout</button>

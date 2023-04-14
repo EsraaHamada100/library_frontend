@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import React from "react";
 import '../styles/BookCard.css';
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const BookCard = ({ book }) => {
                     description: book.description,
                     field: book.field,
                     bookLink: book.pdf_file,
+                    chapters: book.chapters,
                 }
             }
         );

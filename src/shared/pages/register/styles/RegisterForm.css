@@ -74,7 +74,7 @@
   }
   
   .register-form button[type=button]:hover {
-    background-color: var(--button-hover-color);
+    background-color: var(--secondry-container-color);
   }
   
   .register-form form p {
@@ -92,6 +92,6 @@
   }
 
   form p a:hover{
-    color: var(--button-hover-color);
+    color: var(--secondry-container-color);
   }
   

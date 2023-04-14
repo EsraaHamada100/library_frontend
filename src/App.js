@@ -6,26 +6,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Outlet } from 'react-router-dom';
 
-import {  userData, userRoles } from './shared/variables';
+import { userData, userRoles } from './shared/variables';
 
 function App() {
   return (
     <div className="App">
-      {/* {userData && userData.type === userRoles.user? (
+      {userData ? userData.type === userRoles.user ? (
         <>
-          <Header element1="Books" element2="Requests" element3="Search Terms" />
+          <Header element1="Books" element2="Requests" element3="Search Terms" routes={["/books", "/user-requests", "/search-terms"]} />
           <Outlet />
           <Footer />
         </>
-      ) : */}
-      (
+      ) : (
+        <>
+          <Header element1="Books" element2="Users" element3="Requests" routes={["/manage-books", "/manage-users", "/manage-requests"]}/>
+          <Outlet />
+          <Footer />
+        </>
+      ) : (
         <>
           <Header element1="Books" element2="Requests" element3="Users" />
           <Outlet />
           <Footer />
         </>
       ) 
-      {/* } */}
+      }
     </div>
   );
 }
