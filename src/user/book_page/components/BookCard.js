@@ -14,6 +14,7 @@ const BookCard = ({ book }) => {
                     description: book.description,
                     field: book.field,
                     bookLink: book.pdf_file,
+                    chapters: book.chapters,
                 }
             }
         );

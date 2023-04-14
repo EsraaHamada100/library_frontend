@@ -76,5 +76,5 @@ header {
   }
   
   .logout:hover {
-    background-color: var(--button-hover-color); 
+    background-color: var(--secondry-container-color); 
   }

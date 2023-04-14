@@ -65,7 +65,7 @@
   }
   
   button[type=button]:hover {
-    background-color: var(--button-hover-color);
+    background-color: var(--secondry-container-color);
   }
   form p{
     color: var(--primary-color);
@@ -81,5 +81,5 @@
   }
 
   form p a:hover{
-    color: var(--button-hover-color);
+    color: var(--secondry-container-color);
   }
