@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import React from 'react';
+
 
 function Snackbar(props) {
     const [openSnackbar, setOpenSnackbar] = useState(props.open);

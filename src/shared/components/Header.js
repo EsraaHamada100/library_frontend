@@ -1,4 +1,5 @@
 import '../../styles/Header.css';
+import React from 'react';
 import logo from '../../assets/images/logo.png';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { setUserData } from '../variables';

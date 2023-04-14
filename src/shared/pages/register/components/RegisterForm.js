@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from 'react';
 import register from "../../../../utils/register";
 import { Link } from "react-router-dom";
 import '../styles/RegisterForm.css';
