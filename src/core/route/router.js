@@ -8,7 +8,7 @@ import { setUserData, userData, userRoles } from "../../shared/variables";
 import BookDetailsPage from "../../user/book_details_page/BookDetailsPage";
 import UserBooksView from "../../user/book_page/UserBooksView";
 import UserRequestsPage from "../../user/user_requests_page/UserRequestsPage";
-import { getCachedUserData } from "../../utils/localStorage";
+import { getCachedUserData } from "../../utils/auth/localStorage";
 import ProtectedRoute from './protectedRoute';
 import SearchTermsPage from "../../user/search_terms_page/SearchTermsPage";
 //! I initialize the userData  here if the user is already logged in before
@@ -23,6 +23,10 @@ const adminRoutes = [
         path: '/manage-users',
         element: <MangeUsers />,
     },
+    {
+        path: '/manage-books',
+        element: <MangeUsers />
+    }
 
 ];
 
@@ -42,13 +46,13 @@ const userRoutes = [
     },
     {
         path: '/user-requests',
-        element : <ProtectedRoute expectedRole={userRoles.user}>
-        <UserRequestsPage />
-    </ProtectedRoute>,
+        element: <ProtectedRoute expectedRole={userRoles.user}>
+            <UserRequestsPage />
+        </ProtectedRoute>,
     },
     {
         path: '/search-terms',
-        element : <ProtectedRoute expectedRole={userRoles.user}>
+        element: <ProtectedRoute expectedRole={userRoles.user}>
             <SearchTermsPage />
         </ProtectedRoute>
     }
@@ -81,7 +85,10 @@ export const router = createBrowserRouter(
             children: [
                 {
                     path: '/',
-                    element: userData ? <Navigate to="/books" replace /> : <Navigate to="/login" replace />,
+                    element: userData ? 
+                    userData.type === userRoles.user ?
+                     <Navigate to="/books" replace /> : <Navigate to="/manage-books" replace /> 
+                     : <Navigate to="/login" replace />,
                 },
                 ...guestRoutes,
                 ...userRoutes,

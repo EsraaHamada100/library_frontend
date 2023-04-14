@@ -1,6 +1,6 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import register from "../utils/auth/register";
 
 function CreatUser() {
   const [name, setName] = useState("");
@@ -11,19 +11,20 @@ function CreatUser() {
   const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("type " , type);
-    axios.post("http://localhost:4000/users/creat", {
-        name,
-        email,
-        password,
-        phone,
-        type,
-      })
-      .then((res) => {
-        console.log(res);
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
+    formData = {
+      'name': name,
+      'email': email,
+      'password': password,
+      'phone': phone,
+      'type': type,
+      'active': 1,
+    }
+    try {
+      register(formData);
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div className="d-flex vh-100 bg-dark justify-content-center align-items-center">
@@ -73,10 +74,10 @@ function CreatUser() {
               </option>
             ))}
           </select> */}
-          Type : <select value={type} className="form-select" onChange={(e)=>{setType(e.target.value);}}>
-          <option value="admin" selected=""> admin </option>
-          {<option value="user" selected=""> user </option> }
-           </select> 
+          Type : <select value={type} className="form-select" onChange={(e) => { setType(e.target.value); }}>
+            <option value="admin" selected=""> admin </option>
+            {<option value="user" selected=""> user </option>}
+          </select>
           <br></br>
           <button className="btn btn-success">Submit</button>
         </form>

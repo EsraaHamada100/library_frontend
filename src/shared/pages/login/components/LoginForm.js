@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import signIn from "../../../../utils/signIn";
+import signIn from "../../../../utils/auth/signIn";
 import { useState } from "react";
 import '../styles/LoginForm.css';
 const LoginForm = () => {

@@ -3,11 +3,11 @@ import SearchIcon from '../../assets/images/search.svg';
 import EmptyResult from './components/EmptyResult';
 import BooksList from './components/BooksList';
 import './styles/UserBooksView.css';
-import { API_URL } from '../../shared/variables.js';
+import { API_URL, userData } from '../../shared/variables.js';
 import { MdFilterListAlt } from 'react-icons/md';
 import axios from 'axios';
 import FilterPopup from './components/FilterPopup';
-import saveSearchTerm from '../../utils/saveSearchTerm';
+import saveSearchTerm from '../../utils/search_terms/saveSearchTerm';
 // c032e2d7
 
 
@@ -20,7 +20,15 @@ const UserBooksView = () => {
     // state variable for showing the filter pop-up
     const [showFilter, setShowFilter] = useState(false);
     const searchBooks = async (bookName) => {
-        const response = await axios(`${API_URL}/books?book_name=${bookName}&&author=${author}&&field=${field}`);
+        const response = await axios(
+            `${API_URL}/books?book_name=${bookName}&&author=${author}&&field=${field}`,
+            {
+                headers: {
+                    'Authorization': userData.user_id
+                }
+            }
+
+        );
         const data = response.data;
         setBooks(data);
     }
@@ -46,7 +54,7 @@ const UserBooksView = () => {
                         alt="Search"
                         onClick={() => {
                             searchBooks(searchTerm);
-                            if(searchTerm !== ''){
+                            if (searchTerm !== '') {
                                 saveSearchTerm(searchTerm);
                             }
                         }}

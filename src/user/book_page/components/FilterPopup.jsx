@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/FilterPopup.css';
 import FilterDropdownList from './FilterDropDownList';
 import axios from 'axios';
-import { API_URL } from '../../../shared/variables';
+import { API_URL, userData } from '../../../shared/variables';
 
 const FilterPopup = ({ onClose, onSubmit }) => {
     const [author, setAuthor] = useState('');
@@ -13,16 +13,24 @@ const FilterPopup = ({ onClose, onSubmit }) => {
     const getFiltersValues = async () => {
         await getAuthors();
         await getFields();
-        
+
     }
     const getAuthors = async () => {
-        const response = await axios(`${API_URL}/books/authors`);
+        const response = await axios(`${API_URL}/books/authors`, {
+            headers: {
+                'Authorization': userData.user_id
+            }
+        });
         const data = response.data.authors;
         setAuthorOptions(data);
     }
 
     const getFields = async () => {
-        const response = await axios(`${API_URL}/books/fields`);
+        const response = await axios(`${API_URL}/books/fields`, {
+            headers: {
+                'Authorization': userData.user_id
+            }
+        });
         const data = response.data.fields;
         setFieldOptions(data);
     }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { userData } from "../shared/variables";
 
 function UpdateUser() {
   const [users, setUsers] = useState([]);
@@ -13,8 +14,16 @@ function UpdateUser() {
   const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
-    axios.put('http://localhost:4000/users/update/' + user_id, { name , email, password, phone, type })
-    .then((res) => {
+    axios.put(
+      'http://localhost:4000/users/update/' + user_id,
+      { name, email, password, phone, type },
+      {
+        headers: {
+          'Authorization': userData.user_id
+        }
+      }
+    )
+      .then((res) => {
         console.log(res);
         navigate("/");
       }).catch((err) => console.log(err));
@@ -22,7 +31,7 @@ function UpdateUser() {
   return (
     <div className="d-flex vh-100 bg-dark justify-content-center align-items-center">
       <div className="w-50 bg-white rounded p-3">
-        <form onSubmit={handleSubmit}> 
+        <form onSubmit={handleSubmit}>
           <h2>Update User</h2>
           <div className="mb-2">
             <label htmlFor="">Name</label>
@@ -76,10 +85,10 @@ function UpdateUser() {
               </option>
             ))}
           </select> */}
-          Type : <select value={type} className="form-select" onChange={(e)=>{setType(e.target.value);}}>
-          <option value="admin" selected=""> admin </option>
-          {<option value="user" selected=""> User </option> }
-           </select>  
+          Type : <select value={type} className="form-select" onChange={(e) => { setType(e.target.value); }}>
+            <option value="admin" selected=""> admin </option>
+            {<option value="user" selected=""> User </option>}
+          </select>
           <br></br>
           <button className="btn btn-success">Update</button>
         </form>

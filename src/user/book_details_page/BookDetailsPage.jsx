@@ -4,13 +4,11 @@ import React, { useState, useEffect } from "react";
 import "./styles/BookDetailsPage.css";
 import { BsCart3 } from 'react-icons/bs';
 import { useLocation } from "react-router-dom";
-import orderBook from "../../utils/orderBook";
+import orderBook from "../../utils/user_requests/orderBook";
 import { userData, requestStates } from '../../shared/variables'
-import getRequestState from "../../utils/getRequestState";
+import getRequestState from "../../utils/user_requests/getRequestState";
 import { MdPendingActions, MdDoNotDisturb } from 'react-icons/md';
 import { AiOutlineBook } from 'react-icons/ai';
-import { IoIosArrowDown } from 'react-icons/io'
-import { FaBookOpen } from 'react-icons/fa';
 import LoadingIndicator from "../../shared/components/LoadingIndicator";
 import CollapsibleChapter from "./components/CollapsibleChapter";
 

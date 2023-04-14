@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL, userData } from '../shared/variables';
+import { API_URL, userData } from '../../shared/variables';
 
  const saveSearchTerm = async (searchWord) => {
     const body = {

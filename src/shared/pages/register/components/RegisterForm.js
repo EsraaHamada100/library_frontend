@@ -1,5 +1,5 @@
 import { useState } from "react";
-import register from "../../../../utils/register";
+import register from "../../../../utils/auth/register";
 import { Link } from "react-router-dom";
 import '../styles/RegisterForm.css';
 

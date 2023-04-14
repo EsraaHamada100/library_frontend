@@ -1,14 +1,10 @@
 import './styles/SearchTermsPage.css';
 import React, { useEffect, useState } from "react";
-import { API_URL, userData } from "../../shared/variables";
-import axios from "axios";
-import { requestStates } from "../../shared/variables";
-import { BsDashLg } from 'react-icons/bs';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { MdDeleteOutline } from 'react-icons/md';
-import getSearchTerms from '../../utils/getSearchTerms';
-import deleteSearchTerm from '../../utils/deleteSearchTerm';
-import deleteAllSearchTerms from '../../utils/deleteAllSearchTerms';
+import getSearchTerms from '../../utils/search_terms/getSearchTerms';
+import deleteSearchTerm from '../../utils/search_terms/deleteSearchTerm';
+import deleteAllSearchTerms from '../../utils/search_terms/deleteAllSearchTerms';
 const SearchTermsPage = () => {
     const [searchTermsList, setSearchTermsList] = useState([]);
     const getUserSearchTerms = async () => {
