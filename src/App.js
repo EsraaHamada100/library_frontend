@@ -9,6 +9,7 @@ import { Outlet } from 'react-router-dom';
 import { userData, userRoles } from './shared/variables';
 
 function App() {
+  console.log(userData);
   return (
     <div className="App">
       {userData ? userData.type === userRoles.user ? (
@@ -25,9 +26,7 @@ function App() {
         </>
       ) : (
         <>
-          <Header element1="Books" element2="Requests" element3="Users" />
           <Outlet />
-          <Footer />
         </>
       ) 
       }

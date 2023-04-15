@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userData } from '../../shared/variables';
 function MangeUsers() {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     console.log(userData.user_id);
     axios.get('http://localhost:4000/users/', {
@@ -32,6 +34,16 @@ function MangeUsers() {
       console.log(err);
     }
   }
+  const handleUpdate = async (data) => {
+    navigate(
+      '/update-user/',
+      {
+        state: {
+          userData : data
+        }
+      }
+    );
+  }
   return (
     <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
       <div className='w-50 bg-white rounded p-3'>
@@ -52,7 +64,7 @@ function MangeUsers() {
                 <td>{data.user_id}</td>
                 <td>{data.email}</td>
                 <td>
-                  <Link to={`/update-user/${data.user_id}`} className='btn btn-primary'>Update</Link>
+                  <button className='btn btn-primary' onClick={() => handleUpdate(data)}>Update</button>
                   <button className='btn btn-danger ms-2' onClick={e => handelDelete(data.user_id)}>Delete</button>
                 </td>
               </tr>

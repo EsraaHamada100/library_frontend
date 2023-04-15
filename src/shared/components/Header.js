@@ -4,6 +4,8 @@ import logo from '../../assets/images/logo.png';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { setUserData } from '../variables';
 import { deleteCachedUserData } from '../../utils/auth/localStorage';
+import PropTypes from 'prop-types';
+
 const Header = (props) => {
     // from here I can get the location path and now in which route the website is
     // and according to this I will color the nav elements
@@ -17,6 +19,7 @@ const Header = (props) => {
         window.location.reload();
         // return <Navigate to="/login" replace />;
     }
+    console.log(props);
     return (
         <header>
             <div className="logo">
@@ -35,5 +38,12 @@ const Header = (props) => {
     );
 }
 
+Header.prototype = {
+    element1: PropTypes.string.isRequired,
+    element2: PropTypes.string.isRequired,
+    element3: PropTypes.string.isRequired,
+    routes: PropTypes.arrayOf(PropTypes.string)
+  };
+  
 export default Header;
 
