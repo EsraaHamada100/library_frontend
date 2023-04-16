@@ -9,9 +9,11 @@ const SearchTermsPage = () => {
     const [searchTermsList, setSearchTermsList] = useState([]);
     const getUserSearchTerms = async () => {
         const data = await getSearchTerms();
+        console.log('search terms', data);
         setSearchTermsList(data.reverse());
     }
     useEffect(() => {
+        console.log('get user search terms')
         getUserSearchTerms();
     }, []);
 
