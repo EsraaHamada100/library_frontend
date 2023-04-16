@@ -36,14 +36,14 @@ const adminRoutes = [
       path: '/update-user',
       element: <UpdateUser />
     },
-    {
-      path: '/manage-book',
-      element: <ManageBooks />
-    },
-    {
-      path: '/creat-book',
-      element: <CreatBook />
-    },
+    // {
+    //   path: '/manage-book',
+    //   element: <ManageBooks />
+    // },
+    // {
+    //   path: '/creat-book',
+    //   element: <CreatBook />
+    // },
 
 ];
 

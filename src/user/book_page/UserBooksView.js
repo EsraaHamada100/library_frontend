@@ -20,6 +20,7 @@ const UserBooksView = () => {
     // state variable for showing the filter pop-up
     const [showFilter, setShowFilter] = useState(false);
     const searchBooks = async (bookName) => {
+        console.log('we are in searchBooks');
         const response = await axios(
             `${API_URL}/books?book_name=${bookName}&&author=${author}&&field=${field}`,
             {
@@ -31,11 +32,13 @@ const UserBooksView = () => {
         );
         const data = response.data;
         setBooks(data);
+        console.log(data);
+
     }
 
     useEffect(() => {
         searchBooks(searchTerm);
-    }, [author, field]);
+    }, [author, field, searchTerm]);
     return (
         <div className="books-library">
             <h1>Books Library</h1>
@@ -83,11 +86,11 @@ const UserBooksView = () => {
                 />
             )}
 
-            {/* {
+            {
                 books?.length ? <BooksList books={books} /> : <EmptyResult />
-            } */}
+            }
 
-//         </div>
+         </div>
     );
 }
 export default UserBooksView;
