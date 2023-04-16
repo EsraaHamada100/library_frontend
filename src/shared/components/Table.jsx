@@ -1,4 +1,4 @@
-const Table = ({tableHeaders, table ele}) => {
+const Table = ({tableHeaders, table}) => {
     return ( 
         <table>
         <thead>
