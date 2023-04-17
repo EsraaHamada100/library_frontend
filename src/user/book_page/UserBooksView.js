@@ -8,10 +8,10 @@ import { MdFilterListAlt } from 'react-icons/md';
 import axios from 'axios';
 import FilterPopup from './components/FilterPopup';
 import saveSearchTerm from '../../utils/search_terms/saveSearchTerm';
-// c032e2d7
 
 
 const UserBooksView = () => {
+  console.log('we are in searchBooks');
     const [books, setBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [author, setAuthor] = useState('');
@@ -32,7 +32,7 @@ const UserBooksView = () => {
         );
         const data = response.data;
         setBooks(data);
-        console.log(data);
+        console.log("data =" , data);
 
     }
 
@@ -86,9 +86,9 @@ const UserBooksView = () => {
                 />
             )}
 
-            {
+            {/* {
                 books?.length ? <BooksList books={books} /> : <EmptyResult />
-            }
+            } */}
 
          </div>
     );

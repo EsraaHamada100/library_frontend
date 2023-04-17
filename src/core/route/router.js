@@ -16,6 +16,7 @@ import UpdateUser from "../../admin/users/UpdateUser";
 import CreatUser from "../../admin/users/CreatUser";
 import ManageBooks from "../../admin/books/ManageBooks";
 import CreatBook from "../../admin/books/CreatBook";
+import UpdateBook from "../../admin/books/UpdateBook";
 //! I initialize the userData  here if the user is already logged in before
 function initializeUserData() {
   const cachedUserData = getCachedUserData();
@@ -36,14 +37,18 @@ const adminRoutes = [
       path: '/update-user',
       element: <UpdateUser />
     },
-    // {
-    //   path: '/manage-book',
-    //   element: <ManageBooks />
-    // },
-    // {
-    //   path: '/creat-book',
-    //   element: <CreatBook />
-    // },
+    {
+      path: '/manage-book',
+      element: <ManageBooks />
+    },
+    {
+      path: '/creat-book',
+      element: <CreatBook />
+    },
+    {
+      path: '/update-book',
+      element: <UpdateBook />
+    },
 
 ];
 
@@ -72,7 +77,7 @@ const userRoutes = [
         element: <ProtectedRoute expectedRole={userRoles.user}>
             <SearchTermsPage />
         </ProtectedRoute>
-    }
+    },
 
 ];
 

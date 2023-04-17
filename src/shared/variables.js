@@ -15,7 +15,6 @@ export const userRoles = {
     guest: 'guest'
 }
 
-
 export const requestStates = {
     pending: 'pending',
     approved: 'approved',

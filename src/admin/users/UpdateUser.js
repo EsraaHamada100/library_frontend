@@ -31,8 +31,8 @@ function UpdateUser() {
       }).catch((err) => console.log(err));
   }
   return (
-    <div className="d-flex vh-100 bg-dark justify-content-center align-items-center">
-      <div className="w-50 bg-white rounded p-3">
+    <div className="d-flex vh-100 justify-content-center align-items-center">
+      <div className="w-50 rounded p-3">
         <form onSubmit={handleSubmit}>
           <h2>Update User</h2>
           <div className="mb-2">

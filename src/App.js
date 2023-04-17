@@ -20,7 +20,7 @@ function App() {
         </>
       ) : (
         <>
-          <Header element1="Books" element2="Users" element3="Requests" routes={["/manage-books", "/manage-users", "/manage-requests"]}/>
+          <Header element1="Books" element2="Users" element3="Requests" routes={["/manage-book", "/manage-users", "/manage-requests"]}/>
           <Outlet />
           <Footer />
         </>
