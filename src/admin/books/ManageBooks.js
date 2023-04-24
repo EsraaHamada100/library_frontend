@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userData } from '../../shared/variables';
 function ManageBooks() {
+  const navigate = useNavigate();
   const [books, setBooks] = useState([]);
   useEffect(() => {
     axios.get('http://localhost:4000/books/', {
@@ -20,6 +21,7 @@ function ManageBooks() {
           'Authorization': userData.user_id
         }
       });
+      
       // You can change the user list by changing setUsers like that instead of reloading
       // here I get the previous state and remove from it the user_id that I have delete 
       // and that will change the UI without having to reload
@@ -30,6 +32,15 @@ function ManageBooks() {
     } catch (err) {
       console.log(err);
     }
+  }
+  const handelUpdate = async (data)=>{
+    navigate(
+      '/update-book/',
+      {
+        state: {
+          bookData : data
+        }
+      })
   }
   return (
     <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
@@ -50,7 +61,7 @@ function ManageBooks() {
                 <td>{data.book_name}</td>      
                 <td>{data.author}</td>
                 <td>
-                  <Link to={`/update-book/${data.book_id}`} className='btn btn-primary'>Update</Link>
+                  <button onClick={e => handelUpdate(data)} className='btn btn-primary'>Update</button>
                   <button className='btn btn-danger ms-2' onClick={e => handelDelete(data.book_id)}>Delete</button>
                 </td>
               </tr>

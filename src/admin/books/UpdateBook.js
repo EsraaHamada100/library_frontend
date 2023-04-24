@@ -6,22 +6,31 @@ import { API_URL, userData } from "../../shared/variables";
 function UpdateBook() {
   const { state } = useLocation();
   console.log('state ',state);
-  const [bookName, setBookName] = useState(state.bookName);
-  const [description, setDescription] = useState(state.description);
-  const [author, setAuthor] = useState(state.Authorization);
-  const [field, setField] = useState(state.field);
-  const [date, setDate] = useState(state.date);
-  const [coverLink, setCoverLink] = useState(state.coverLink);
-  const [pdf, setPdf] = useState(state.pdf);
-  const [bookId, setBookId] = useState(state.bookId);
-
+  const [bookName, setBookName] = useState(state.bookData.book_name);
+  const [description, setDescription] = useState(state.bookData.description);
+  const [author, setAuthor] = useState(state.bookData.author);
+  const [field, setField] = useState(state.bookData.field);
+  const [date, setDate] = useState(state.bookData.publication_date.split('T')[0]);
+  const [coverLink, setCoverLink] = useState(state.bookData.cover_link);
+  const [pdf, setPdf] = useState(state.bookData.pdf_file);
+  const [bookId, setBookId] = useState(state.bookData.book_id);
+console.log(state.bookData.publication_date);
   const navigate = useNavigate();
   function handleSubmit(event) {
     console.log('we are in submit update');
     event.preventDefault();
+    const formData = {
+      'book_name': bookName,
+      'description': description,
+      'author': author,
+      'field': field,
+      'publication_date': date,
+      'cover_link': coverLink,
+      'pdf_file' : pdf
+    }
     axios.put(
-      `${API_URL}/books/` ,
-      { bookName, description, author, field, date , coverLink , pdf },
+      `${API_URL}/books/${bookId}` ,
+      formData,
       {
         headers: {
           'Authorization': userData.user_id
@@ -30,13 +39,13 @@ function UpdateBook() {
     )
       .then((res) => {
         console.log(res);
-        navigate("/");
+        navigate('/manage-book', {replace: true});
       }).catch((err) => console.log(err));
   }
   return (
-    <div className="d-flex vh-100 justify-content-center align-items-center">
-      <div className="w-50 rounded p-3">
-        <form onSubmit={handleSubmit}>
+    <div className="d-flex vh-80 justify-content-center align-items-center">
+      <div className="w-30 rounded p-3">
+        <form  onSubmit={handleSubmit}>
           <h2>Update Book</h2>
           <div className="mb-2">
             <label htmlFor="">Book name</label>

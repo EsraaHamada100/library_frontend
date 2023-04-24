@@ -11,7 +11,8 @@ import saveSearchTerm from '../../utils/search_terms/saveSearchTerm';
 
 
 const UserBooksView = () => {
-  console.log('we are in searchBooks');
+
+    console.log('we enter the page');
     const [books, setBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [author, setAuthor] = useState('');
