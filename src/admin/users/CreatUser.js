@@ -8,6 +8,8 @@ function CreatUser() {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [type, setType] = useState("user");
+  const [active, setActive] = useState("active");
+
   const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,7 +19,7 @@ function CreatUser() {
       'password': password,
       'phone': phone,
       'type': type,
-      'active': 1,
+      'active': active,
     }
     try {
       register(formData);
@@ -78,6 +80,12 @@ function CreatUser() {
             <option value="admin" selected=""> admin </option>
             {<option value="user" selected=""> user </option>}
           </select>
+          <br></br>
+          Active : <select value={active} className="form-select w-25 p-10 h-10 d-inline-block" onChange={(e) => { setActive(e.target.value); }}>
+                  <option value="1" selected=""> active </option>
+                 {<option value="0" selected=""> inactive </option>}
+                 </select>
+          <br></br>
           <br></br>
           <button className="btn btn-success">Submit</button>
         </form>

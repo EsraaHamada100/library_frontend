@@ -12,13 +12,14 @@ function UpdateUser() {
   const [phone, setPhone] = useState(state.userData.phone);
   const [type, setType] = useState(state.userData.type);
   const [userId, setUserId] = useState(state.userData.user_id);
+  const [active, setActive] = useState(state.userData.active);
   const navigate = useNavigate();
   function handleSubmit(event) {
     console.log('we are in submit update');
     event.preventDefault();
     axios.put(
       `${API_URL}/users/${userId}` ,
-      { name, email, password, phone, type },
+      { name, email, password, phone, type , active },
       {
         headers: {
           'Authorization': userData.user_id
@@ -79,6 +80,11 @@ function UpdateUser() {
             <option value="admin" selected=""> admin </option>
             {<option value="user" selected=""> User </option>}
           </select>
+          <br></br>
+          Active : <select value={active} className="form-select " onChange={(e) => { setActive(e.target.value); }}>
+                  <option value="1" selected=""> active </option>
+                 {<option value="0" selected=""> inactive </option>}
+                 </select> 
           <br></br>
           <button className="btn btn-success"  >Update</button>
         </form>

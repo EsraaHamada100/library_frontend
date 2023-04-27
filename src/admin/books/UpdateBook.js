@@ -44,7 +44,7 @@ console.log(state.bookData.publication_date);
   }
   return (
     <div className="d-flex vh-80 justify-content-center align-items-center">
-      <div className="w-30 rounded p-3">
+      <div className="w-50 rounded p-3">
         <form  onSubmit={handleSubmit}>
           <h2>Update Book</h2>
           <div className="mb-2">

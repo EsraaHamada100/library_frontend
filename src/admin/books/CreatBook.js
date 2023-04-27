@@ -38,7 +38,7 @@ function CreatBook() {
     }
   }
   return (
-    <div className="d-flex vh-100 justify-content-center align-items-center">
+    <div className="d-flex vh-80 justify-content-center align-items-center">
       <div className="w-50 rounded p-5">
         <form onSubmit={handleSubmit}>
           <h2>Add Book</h2>
