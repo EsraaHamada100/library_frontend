@@ -4,7 +4,6 @@ import RegisterForm from './components/RegisterForm';
 import FormImage from '../../components/AuthPageImage';
 const RegisterPage = () => {
     const [openSnackbar, setOpenSnackbar] = useState(false);
-
     return (
         <div className="container">
             <RegisterForm openTheSnackbar={()=>setOpenSnackbar(true)} />
