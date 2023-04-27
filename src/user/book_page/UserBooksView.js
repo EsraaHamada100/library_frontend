@@ -39,7 +39,7 @@ const UserBooksView = () => {
 
     useEffect(() => {
         searchBooks(searchTerm);
-    }, [author, field, searchTerm]);
+    }, [author, field]);
     return (
         <div className="books-library">
             <h1>Books Library</h1>
@@ -87,9 +87,9 @@ const UserBooksView = () => {
                 />
             )}
 
-            {/* {
+            {
                 books?.length ? <BooksList books={books} /> : <EmptyResult />
-            } */}
+            }
 
          </div>
     );

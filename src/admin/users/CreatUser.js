@@ -8,7 +8,7 @@ function CreatUser() {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [type, setType] = useState("user");
-  const [active, setActive] = useState("active");
+  const [active, setActive] = useState("1");
 
   const navigate = useNavigate();
   function handleSubmit(event) {
@@ -82,8 +82,8 @@ function CreatUser() {
           </select>
           <br></br>
           Active : <select value={active} className="form-select w-25 p-10 h-10 d-inline-block" onChange={(e) => { setActive(e.target.value); }}>
-                  <option value="1" selected=""> active </option>
-                 {<option value="0" selected=""> inactive </option>}
+                  <option value="1" > active </option>
+                 {<option value="0" > inactive </option>}
                  </select>
           <br></br>
           <br></br>

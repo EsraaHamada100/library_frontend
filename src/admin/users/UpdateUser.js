@@ -56,7 +56,7 @@ function UpdateUser() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <label htmlFor="">Password</label>
             <input
               type="password"
@@ -65,7 +65,7 @@ function UpdateUser() {
               className="form-control"
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
+          </div> */}
           <div className="mb-2">
             <label htmlFor="">phone</label>
             <input
