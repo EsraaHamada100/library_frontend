@@ -52,6 +52,18 @@ const adminRoutes = [
       element: <UpdateBook />
     },
     {
+      path: '/book-chapters',
+      element: <ManageChapters/>
+    },
+    {
+      path: '/create-chapters',
+      element: <CreateChapters />
+    },
+    {
+      path: '/update-chapters',
+      element: <UpdateChapters />
+    },
+    {
       path: '/manage-requests',
       element: <ManageRequests />
     },

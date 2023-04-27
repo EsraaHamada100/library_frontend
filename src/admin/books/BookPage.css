@@ -32,6 +32,9 @@
     background-color: var(--primary-color);
     color: var(--background-color);
   }
+  .book-name  {
+    cursor: pointer;
+  }
   
   .odd {
     background-color: var(--secondry-color);

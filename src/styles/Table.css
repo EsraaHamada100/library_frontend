@@ -1,4 +1,4 @@
-.user-requests-page  table {
+    table {
     border: 2px solid var(--primary-color);
       border-collapse: collapse;
       width: 100%;
@@ -23,3 +23,10 @@
       background-color: var(--background-color);
     }
     
+    tr .raw-delete-icon{
+        color: var(--primary-color);
+    }
+
+    tr .raw-delete-icon:hover{
+    color: red;
+    }

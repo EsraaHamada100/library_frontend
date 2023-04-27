@@ -4,6 +4,7 @@ import '../styles/BookCard.css';
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
     const handleBookClick = () => {
+        
         navigate(
             '/book-details',
             {

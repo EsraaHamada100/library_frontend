@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {AiFillDelete} from 'react-icons/ai';
 import {BiEditAlt} from 'react-icons/bi';
 import {MdAddCircle} from 'react-icons/md';
-import "./UserRequestsPage.css"
+import "./BookPage.css";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { userData } from '../../shared/variables';
@@ -46,6 +46,17 @@ function ManageBooks() {
         }
       })
   }
+  const navigateToBookChapters = (id, chapters)=>{
+    navigate(
+      '/book-chapters', 
+      {
+        state:{ 
+          bookId: id,
+          bookChapters: chapters
+        }
+      }
+    );
+  }
   return (
     <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
       <div className='w-80  rounded p-3'>
@@ -61,9 +72,11 @@ function ManageBooks() {
         </thead>
         <tbody>{
             books.map((data, i) => (
-              <tr key={i}>
+              <tr key={i} onClick={console.log('hello from book ', i)}>
                 <td>{data.book_id}</td>
-                <td>{data.book_name}</td>      
+                <td className='book-name' onClick={navigateToBookChapters(data.book_id, data.chapters)}>
+                  {data.book_name}
+                </td>      
                 <td>{data.author}</td>
                 <td>
                   <button onClick={e => handelUpdate(data)} ><BiEditAlt size='20' color='blue'/></button>
