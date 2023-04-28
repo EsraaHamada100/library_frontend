@@ -39,23 +39,24 @@ function ManageChapters() {
   }
   const handelUpdate = async (data)=>{
     navigate(
-      '/update-chapter/',
+      '/update-chapters/',
       {
         state: {
-          bookData : data
+          chapterData : data
         }
       })
   }
   return (
     <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
       <div className='w-80  rounded p-3'>
-        <Link to="/create-chapter" className=' font-weight-bold text-black btn bg-light '> <MdAddCircle size='25' color='green'/> add chapter</Link>
+        <Link to="/create-chapters" className=' font-weight-bold text-black btn bg-light '> <MdAddCircle size='25' color='green'/> add chapter</Link>
         <table>
         <thead>
           <tr>
-              <th>ID</th>
-              <th>Book name</th>
-              <th>Author</th>
+              <th>Chapter ID</th>
+              <th>Book ID</th>
+              <th>Chapter title</th>
+              <th>Description</th>
               <th>Action</th>
           </tr>
         </thead>

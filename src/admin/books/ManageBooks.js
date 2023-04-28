@@ -74,7 +74,7 @@ function ManageBooks() {
             books.map((data, i) => (
               <tr key={i} onClick={console.log('hello from book ', i)}>
                 <td>{data.book_id}</td>
-                <td className='book-name' onClick={navigateToBookChapters(data.book_id, data.chapters)}>
+                <td className='book-name' onClick={()=>navigateToBookChapters(data.book_id, data.chapters)}>
                   {data.book_name}
                 </td>      
                 <td>{data.author}</td>
@@ -87,28 +87,6 @@ function ManageBooks() {
             ))
           }</tbody>
         </table>
-        {/* // <table className='table'>
-        //   <thead>
-        //     <tr>
-        //       <th>ID</th>
-        //       <th>Book name</th>
-        //       <th>Author</th>
-        //     </tr>
-        //   </thead>
-        //   <tbody>{ */}
-        {/* //     books.map((data, i) => (
-        //       <tr key={i}>
-        //         <td>{data.book_id}</td>
-        //         <td>{data.book_name}</td>      
-        //         <td>{data.author}</td>
-        //         <td>
-        //           <button onClick={e => handelUpdate(data)} className='btn btn-primary'>Update</button>
-        //           <button className='btn btn-danger ms-2' onClick={e => handelDelete(data.book_id)}>Delete</button>
-        //         </td>
-        //       </tr>
-        //     ))
-        //   }</tbody>
-        // </table>  */}
        </div>
      </div>
   );
