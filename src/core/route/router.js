@@ -18,6 +18,9 @@ import ManageBooks from "../../admin/books/ManageBooks";
 import CreatBook from "../../admin/books/CreatBook";
 import UpdateBook from "../../admin/books/UpdateBook";
 import ManageRequests from "../../admin/requests/ManageRequests";
+import ManageChapters from "../../admin/chapters/ManageChapters";
+import CreateChapter from "../../admin/chapters/CreateChapter";
+import UpdateChapter from "../../admin/chapters/UpdateChapter";
 //! I initialize the userData  here if the user is already logged in before
 function initializeUserData() {
   const cachedUserData = getCachedUserData();
@@ -50,22 +53,23 @@ const adminRoutes = [
       path: '/update-book',
       element: <UpdateBook />
     },
-    // {
-    //   path: '/book-chapters',
-    //   element: <ManageChapters/>
-    // },
-    // {
-    //   path: '/create-chapters',
-    //   element: <CreateChapters/>
-    // },
-    // {
-    //   path: '/update-chapters',
-    //   element: <UpdateChapters />
-    // },
+    {
+      path: '/book-chapters',
+      element: <ManageChapters/>
+    },
+    {
+      path: '/create-chapters',
+      element: <CreateChapter />
+    },
+    {
+      path: '/update-chapters',
+      element: <UpdateChapter />
+    },
     {
       path: '/manage-requests',
       element: <ManageRequests />
     },
+
 
 ];
 
