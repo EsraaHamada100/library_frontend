@@ -30,7 +30,8 @@ function UpdateChapter() {
     )
       .then((res) => {
         console.log(res);
-        navigate('/book-chapters', {replace: true});
+        navigate(-1);
+        // navigate('/book-chapters', {replace: true});
       }).catch((err) => console.log(err));
   }
   return (

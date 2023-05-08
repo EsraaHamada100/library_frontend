@@ -4,13 +4,15 @@ import {BiEditAlt} from 'react-icons/bi';
 import {MdAddCircle} from 'react-icons/md';
 // import "./chapters.css"
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { userData } from '../../shared/variables';
 function ManageChapters() {
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
+  const { state } = useLocation();
+
   const [chapters, setChapters] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:4000/chapters/', {
+    axios.get('http://localhost:4000/chapters?book_id='+state.bookId, {
       headers: {
         'Authorization': userData.user_id
       }
@@ -46,10 +48,19 @@ function ManageChapters() {
         }
       })
   }
+  const handleCreate = ()=>{
+    navigate(
+      '/create-chapters',
+      {
+        state: {
+          bookId : state.bookId
+        }
+      })
+  }
   return (
     <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
       <div className='w-80  rounded p-3'>
-        <Link to="/create-chapters" className=' font-weight-bold text-black btn bg-light '> <MdAddCircle size='25' color='green'/> add chapter</Link>
+        <a  className=' font-weight-bold text-black btn bg-light ' onClick={handleCreate}> <MdAddCircle size='25' color='green'/> add chapter</a>
         <table>
         <thead>
           <tr>
@@ -64,7 +75,7 @@ function ManageChapters() {
             chapters.map((data, i) => (
               <tr key={i}>
                 <td>{data.chapter_id}</td>
-                <td>{data.book_id}</td>      
+                <td>{state.bookId}</td>      
                 <td>{data.chapter_title}</td>
                 <td>{data.description}</td>
                 <td>

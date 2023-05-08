@@ -1,23 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { userData } from "../../shared/variables";
 import axios from 'axios';
 import { API_URL } from "../../shared/variables";
 
 
 function CreateChapter() {
-  const [chapterId, setChapterId] = useState("");
+  const location = useLocation();
+  console.log(location);
+  const {state} = useLocation();
   const [description, setDescription] = useState("");
-  const [bookId, setBookId] = useState("");
+
   const [title, setTitle] = useState("");
 
   const navigate = useNavigate();
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = {
-      'book_id': bookId,
-      'description': description,
+      'book_id': state.bookId,
       'chapter_title': title,
+      'description': description,
     }
     try {
       const response = await axios.post(`${API_URL}/chapters/`, formData, {
@@ -25,7 +27,7 @@ function CreateChapter() {
           "Authorization" : userData.user_id
         },
       });
-      navigate('/book-chapters');
+      navigate(-1);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +37,7 @@ function CreateChapter() {
       <div className="w-50 rounded p-5">
         <form onSubmit={handleSubmit}>
           <h2>Add chapter</h2>
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <label htmlFor="">Book ID</label>
             <input
               type="text"
@@ -43,7 +45,7 @@ function CreateChapter() {
               className="form-control"
               onChange={(e) => setBookId(e.target.value)}
             />
-          </div>
+          </div> */}
           <div className="mb-2">
             <label htmlFor="">Title</label>
             <input

@@ -52,7 +52,6 @@ function ManageBooks() {
       {
         state:{ 
           bookId: id,
-          bookChapters: chapters
         }
       }
     );
