@@ -74,7 +74,7 @@ function ManageBooks() {
             books.map((data, i) => (
               <tr key={i} onClick={console.log('hello from book ', i)}>
                 <td>{data.book_id}</td>
-                <td className='book-name' onClick={navigateToBookChapters(data.book_id, data.chapters)}>
+                <td className='book-name' onClick={()=>navigateToBookChapters(data.book_id, data.chapters)}>
                   {data.book_name}
                 </td>      
                 <td>{data.author}</td>
