@@ -55,7 +55,7 @@ function CreateChapter() {
           </div>
           <div className="mb-2">
             <label htmlFor="">Description</label>
-            <input
+            <textarea
               type="text Areas"
               placeholder="Enter Description"
               className="form-control"

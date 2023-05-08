@@ -43,4 +43,13 @@
   .even {
     background-color: var(--background-color);
   }
-  
+  .add form {
+    background-color: var(--form-background-color);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-left: 72%;
+    width: 400%;
+    max-width: 400px;
+  }

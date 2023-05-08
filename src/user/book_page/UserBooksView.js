@@ -87,9 +87,9 @@ const UserBooksView = () => {
                 />
             )}
 
-            {
+            {/* {
                 books?.length ? <BooksList books={books} /> : <EmptyResult />
-            }
+            } */}
 
          </div>
     );

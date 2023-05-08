@@ -62,14 +62,14 @@ function MangeUsers() {
     });
   };
   return (
-    <div className="d-flex vh-100 .bg-primary justify-content-center align-items-center">
+    <div className=" justify-content-center align-items-center user-requests-page">
       <div className="w-80 rounded p-3">
         <Link
           to="/creat-user"
           className=" font-weight-bold text-black btn bg-light ">
           {" "}
           <HiUserAdd size="25" color="green" /> add member </Link>
-        <table>
+        <table className="table table-hover">
           <thead>
             <tr>
               <th>Name</th>
@@ -81,17 +81,20 @@ function MangeUsers() {
           </thead>
           <tbody>
             {users.map((data, i) => (
-              <tr key={i}>
+              <tr
+              key={data.request_id}
+              className={i % 2 === 0 ? "even" : "odd"}
+               >
                 <td>{data.name}</td>
                 <td>{data.user_id}</td>
                 <td>{data.email}</td>
                 <td>{data.active? <GoPrimitiveDot size="20" color="green"/> : <GoPrimitiveDot size="20" color="red"/>}</td>
                 <td>
-                  <button onClick={() => handleUpdate(data)}>
-                    <BiEditAlt size="20" color="blue" />
+                  <button onClick ={() => handleUpdate(data)}>
+                    <BiEditAlt size="23" color="blue" />
                   </button>
                   <button onClick={(e) => handelDelete(data.user_id)}>
-                    <AiFillDelete size="20" color="red" />
+                    <AiFillDelete size="23" color="red" />
                   </button>
                 </td>
               </tr>

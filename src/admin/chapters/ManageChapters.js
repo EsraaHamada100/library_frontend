@@ -47,10 +47,10 @@ function ManageChapters() {
       })
   }
   return (
-    <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
+    <div className=' justify-content-center align-items-center user-requests-page'>
       <div className='w-80  rounded p-3'>
         <Link to="/create-chapters" className=' font-weight-bold text-black btn bg-light '> <MdAddCircle size='25' color='green'/> add chapter</Link>
-        <table>
+        <table className="table table-hover">
         <thead>
           <tr>
               <th>Chapter ID</th>
@@ -62,14 +62,15 @@ function ManageChapters() {
         </thead>
         <tbody>{
             chapters.map((data, i) => (
-              <tr key={i}>
+              <tr key={data.request_id}
+              className={i % 2 === 0 ? "even" : "odd"}>
                 <td>{data.chapter_id}</td>
                 <td>{data.book_id}</td>      
                 <td>{data.chapter_title}</td>
                 <td>{data.description}</td>
                 <td>
-                  <button onClick={e => handelUpdate(data)} ><BiEditAlt size='20' color='blue'/></button>
-                  <button  onClick={e => handelDelete(data.chapter_id)}><AiFillDelete size='20' color='red'/></button>
+                  <button onClick={e => handelUpdate(data)} ><BiEditAlt size='23' color='blue'/></button>
+                  <button  onClick={e => handelDelete(data.chapter_id)}><AiFillDelete size='23' color='red'/></button>
 
                 </td>
               </tr>

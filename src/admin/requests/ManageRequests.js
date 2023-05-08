@@ -104,7 +104,7 @@ const ManageRequests = () => {
         <option value="approved">Approved</option>
         <option value="declined">Declined</option>
       </select>
-      <table>
+      <table class="table table-hover" >
         <thead>
           <tr>
             <th>Request ID</th>

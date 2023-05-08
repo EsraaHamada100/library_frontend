@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import register from "../../utils/auth/register";
+import "./UserRequestsPage.css";
 
 function CreatUser() {
   const [name, setName] = useState("");
@@ -31,7 +32,7 @@ function CreatUser() {
   return (
     <div className="d-flex vh-100 justify-content-center align-items-center">
       <div className="w-50 rounded p-5">
-        <form onSubmit={handleSubmit}>
+        <form className="add" onSubmit={handleSubmit}>
           <h2>Add User</h2>
           <div className="mb-2">
             <label htmlFor="">Name</label>

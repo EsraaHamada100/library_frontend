@@ -58,10 +58,10 @@ function ManageBooks() {
     );
   }
   return (
-    <div className='d-flex vh-100 .bg-primary justify-content-center align-items-center'>
+    <div className=' justify-content-center align-items-center user-requests-page'>
       <div className='w-80  rounded p-3'>
         <Link to="/creat-book" className=' font-weight-bold text-black btn bg-light '> <MdAddCircle size='25' color='green'/> add Book</Link>
-        <table>
+        <table className="table table-hover">
         <thead>
           <tr>
               <th>ID</th>
@@ -72,15 +72,18 @@ function ManageBooks() {
         </thead>
         <tbody>{
             books.map((data, i) => (
-              <tr key={i} onClick={console.log('hello from book ', i)}>
+              <tr 
+              key={data.request_id}
+              className={i % 2 === 0 ? "even" : "odd"}
+               onClick={console.log('hello from book ', i)}>
                 <td>{data.book_id}</td>
                 <td className='book-name' onClick={()=>navigateToBookChapters(data.book_id, data.chapters)}>
                   {data.book_name}
                 </td>      
                 <td>{data.author}</td>
                 <td>
-                  <button onClick={e => handelUpdate(data)} ><BiEditAlt size='20' color='blue'/></button>
-                  <button  onClick={e => handelDelete(data.book_id)}><AiFillDelete size='20' color='red'/></button>
+                  <button onClick={e => handelUpdate(data)} ><BiEditAlt size='23' color='blue'/></button>
+                  <button  onClick={e => handelDelete(data.book_id)}><AiFillDelete size='23' color='red'/></button>
 
                 </td>
               </tr>
