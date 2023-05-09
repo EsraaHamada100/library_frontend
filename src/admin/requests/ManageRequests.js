@@ -74,7 +74,7 @@ const ManageRequests = () => {
     setRequestsList((prevState) =>
       prevState.filter((item) => item.request_id !== id)
     );
-    axios.delete("http://localhost:4000/requests/" + id , {
+    axios.delete("http://localhost:4000/requests/" + id, {
       headers: {
         "Content-Type": "application/json",
         Authorization: userData.user_id,
@@ -116,6 +116,7 @@ const ManageRequests = () => {
           </tr>
         </thead>
         <tbody>
+
           {filteredData.map((item, index) => (
             <tr
               key={item.request_id}

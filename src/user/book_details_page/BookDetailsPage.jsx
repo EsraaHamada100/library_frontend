@@ -121,7 +121,7 @@ const BookDetailsPage = () => {
                     state.chapters.map((chapter, index) => (
                       <CollapsibleChapter
                         key={index}
-                        title={chapter.title}
+                        title={chapter.chapter_title}
                         content={chapter.description}
                       />
                     ))
